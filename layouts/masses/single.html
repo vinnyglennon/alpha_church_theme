@@ -1,0 +1,38 @@
+{{ define "main" }}
+			{{ "<!-- Main -->" | safeHTML }}
+				<section id="main" class="container">
+					<header>
+						{{ with .Params.title }}<p>{{ . }}</p>{{ end }}
+					</header>
+					<div class="box">
+						<div class="row">
+							<div class="col-6 col-12-mobilep">
+							{{ with .Params.images }}
+								<span class="image fit"><img src="{{ index . 0 | absURL }}" alt=""></span>
+							{{ end }}
+							</div>
+							<div class="col-6 col-12-mobilep">
+								{{ with .Params.recording }}
+									{{ $audio_name_arr := split . "." }}
+									{{ $audio_type := index $audio_name_arr (sub (len $audio_name_arr) 1) }}
+									<ul class="actions small">
+										<li>
+										<audio id="player" controls>
+											<source src="{{ . }}" preload="auto" type="audio/{{ $audio_type }}">
+											Your browser doesn't support embedded audio.
+										</audio>
+										</li>
+										<li>
+											<a href="{{ . }}" class="button alt small" download><i class="icon fas fa-download"></i>&nbsp;Download</a>
+										</li>
+									</ul>
+								{{ end }} {{/* with .Params.recording */}}
+							{{ .Content }}
+    					{{ with .Params.thoughts }}<p>{{ . }}</p>{{ end }}
+
+							{{ with .Params.date }}<p>Date: {{ . | dateFormat "January 2, 2006"}}</p>{{ end }}
+							</div>
+						</div>
+					</div>
+				</section>
+{{ end }}

@@ -5,7 +5,7 @@
     {{ if .Params.images }}
       <div class="row no-collapse 50% uniform">
         <div class="col-6 col-12-mobilep">
-          <a href="{{ .Permalink }}">{{ if .Draft }}DRAFT: {{end}}{{ .Title | markdownify }}</a>
+          <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
           <time class="date-meta">({{ .Date.Format "Jan 2, 2006" }})</time>
           <br>
           {{ .Summary | plainify | safeHTML }}
