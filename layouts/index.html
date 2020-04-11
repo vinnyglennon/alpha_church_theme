@@ -13,10 +13,11 @@
 
 					{{ if .Params.Services.title }}
 					<section class="box special">
-						<header class="major">
-							<h2>{{ .Params.Services.title }}</h2><a name="services"></a>
-							<p>{{ .Params.Services.text | markdownify }}</p>
-						</header>
+            <header class="major">
+              {{ range ( last 1 ( where .Site.Pages "Type" "masses" ).ByDate ) }}
+                <h2><a href="{{ .Permalink }}">Most recent Mass Recorded</a></h2>
+              {{ end }}
+            </header>
 						{{ partial "map" . }}
 					</section>
 					{{ end }}
@@ -78,7 +79,6 @@
 					<h2>{{ .Params.CTA.heading}}</h2>
 					<p>{{ .Params.CTA.message}}</p>
 					{{ partial "contact" .}}
-
 				</section>
 {{ partialCached "footer" . }}
 {{ partial "scripts" . }}
