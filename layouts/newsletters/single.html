@@ -1,0 +1,24 @@
+{{ define "main" }}
+	{{ "<!-- Main -->" | safeHTML }}
+	<section id="main" class="container">
+		<header>
+      <h1>
+        <p>{{ .Params.title }},
+  			{{ with .Params.date }}  {{ . | dateFormat "January 2, 2006"}}</p>{{ end }}
+      </h1>
+		</header>
+		<div class="box">
+			<div class="row">
+				<div class="col-6 col-12-mobilep">
+          {{ range .Params.newsletter_images }}
+						<ul class="actions small">
+              <li>
+								<img src="{{ . }}"/>
+							</li>
+						</ul>
+					{{ end }} {{/* range .Params.newsletter_images */}}
+				</div>
+			</div>
+		</div>
+	</section>
+{{ end }}
