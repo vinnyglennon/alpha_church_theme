@@ -17,8 +17,8 @@
 							{{ $audio_type := index $audio_name_arr (sub (len $audio_name_arr) 1) }}
 							<ul class="actions small">
 								<li>
-								<audio id="player" controls>
-									<source src="{{ . }}" preload="auto" type="audio/{{ $audio_type }}">
+								<audio controls preload="auto" controlsList="nodownload">
+									<source src="{{ . }}" type="audio/{{ $audio_type }}">
 									Your browser doesn't support embedded audio.
 								</audio>
 								</li>

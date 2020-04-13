@@ -8,11 +8,11 @@
 					{{ if .Params.Services.title }}
 					<section class="box special">
             <header class="major">
-              {{ range ( first 1 ( where .Site.Pages "Type" "masses" ).ByDate ) }}
+              {{ range ( last 1 ( where .Site.Pages "Type" "masses" ).ByDate ) }}
                 <h2><a href="{{ .Permalink }}">Latest Mass Recorded</a></h2>
               {{ end }}
                 <br /><br/>
-                {{ range ( first 1 ( where .Site.Pages "Type" "newsletters" ).ByDate ) }}
+                {{ range ( last 1 ( where .Site.Pages "Type" "newsletters" ).ByDate ) }}
                   <h2><a href="{{ .Permalink }}">Latest Newsletter</a></h2>
                 {{ end }}
             </header>
