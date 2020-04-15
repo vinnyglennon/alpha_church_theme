@@ -29,7 +29,6 @@
 						{{ end }} {{/* with .Params.recording */}}
 					{{ .Content }}
 					{{ with .Params.thoughts }}<p>{{ . }}</p>{{ end }}
-					{{ with .Params.date }}<p>Date: {{ . | dateFormat "January 2, 2006"}}</p>{{ end }}
 					</div>
 				</div>
 			</div>
