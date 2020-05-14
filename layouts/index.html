@@ -71,6 +71,41 @@
 
 				</section>
 
+        <script>
+          $(document).ready(function() {
+            $.ajaxSetup({ cache: true });
+            $.getScript('https://connect.facebook.net/en_US/sdk.js', function(){
+              FB.init({
+                appId: '{your-app-id}',
+                version: 'v2.7' // or v2.1, v2.2, v2.3, ...
+              });
+              $('#loginbutton,#feedbutton').removeAttr('disabled');
+              FB.getLoginStatus(updateStatusCallback);
+            });
+          });
+        </script>
+
+        <script>
+          $(document).ready(function() {
+            $.ajaxSetup({ cache: true });
+            $.getScript('https://connect.facebook.net/en_US/sdk.js', function(){
+              FB.init({
+                appId: '{your-app-id}',
+                version: 'v2.7' // or v2.1, v2.2, v2.3, ...
+              });
+              $('#loginbutton,#feedbutton').removeAttr('disabled');
+              FB.getLoginStatus(updateStatusCallback);
+            });
+          });
+        </script>
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v7.0"></script>
+        <div style="margin: auto; width: 75%;padding-left:25%;padding-bottom:100px">
+          <h2>Live Streams</h2>
+          <div class="fb-page" data-href="https://www.facebook.com/Taughmaconnell-103113594744855//" data-tabs="timeline" data-width="500" data-height="" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false"><blockquote cite="https://www.facebook.com/Taughmaconnell-103113594744855//" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Taughmaconnell-103113594744855//">St Ronans Church</a></blockquote></div>
+        </div>
+
+
 			{{ "<!-- CTA -->" | safeHTML }}
 				<section id="cta"><a name="call-to-action"></a>
 

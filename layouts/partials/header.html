@@ -5,18 +5,8 @@
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		{{ with .Site.Params.subtitle }}<meta name="description" content="{{ . }}">{{ end }}
-		{{ with .Site.Params.name }}<meta name="author" content="{{ . }}">{{ end }}
-		{{- with .OutputFormats.Get "rss" -}}
-    	{{ printf `<link rel="%s" type="%s+%s" href="%s" title="%s" />` .Rel .MediaType.Type .MediaType.Suffix .Permalink $.Site.Title | safeHTML }}
-		{{- end -}}
-		{{ hugo.Generator }}
-		{{ with .Site.Params.Podcast.itunes }}
-			<meta name="apple-itunes-app" content="app-id={{ replaceRE "https\\:\\/\\/itunes\\.apple\\.com\\/[a-z]{2}\\/podcast\\/[a-z\\-]*\\/id(\\d{10}).*" "$1" . }}" />
-		{{ end }}
-		{{ template "_internal/opengraph.html" . }}
-		{{ template "_internal/twitter_cards.html" . }}
 		<link rel="stylesheet" href="{{ "fontawesome/css/all.min.css" | absURL }}" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 		{{- $css := .Site.Data.libs.css -}}
 		{{ if .IsPage }}{{ printf "<link rel=\"stylesheet\" href=\"//cdn.plyr.io/%s/plyr.css\" integrity=\"%s\" crossorigin=\"anonymous\">" $css.plyr.version $css.plyr.integrity | safeHTML }}{{ end }}
 		{{- $ieStyles := resources.Get "scss/ie8.scss" | toCSS | minify -}}
